@@ -1,4 +1,3 @@
-import Button from "../Primitives/Button"
 import Form from "./NewExpenseForm"
 
 function NewExpense(props) {
@@ -22,10 +21,10 @@ function NewExpense(props) {
 					onCancel={props.onCancel}
 				/>
 			</div>
-			<div
+			<button
 				onClick={props.onCancel}
 				className='absolute inset-0 bg-stone-900 opacity-80'
-			></div>
+			></button>
 		</div>
 	)
 }

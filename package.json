@@ -1,7 +1,10 @@
 {
-  "name": "learn-react",
+  "name": "expenses-react",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "./",
+  "author": "Igor Lanko",
+  "publisher": "https://igorlanko.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -14,6 +17,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -37,6 +42,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.12",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"
   }
