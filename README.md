@@ -7,4 +7,5 @@ This is just a result of an exercise I was doing when learning React.js. Super s
 - Tailwindcss
 
 ## Demo
-- Pull the repo and run `npm install` and then `npm start`.
+- Pull the repo and run `npm install` and then `npm start`;
+- Or check out live preview at [igorlanko.github.io/expenses-react](igorlanko.github.io/expenses-react).

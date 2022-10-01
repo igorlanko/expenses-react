@@ -89,7 +89,7 @@ function App() {
 	}
 
 	return (
-		<div className='max-w-2xl px-2 py-4 m-auto'>
+		<div className='flex flex-col max-w-2xl min-h-screen px-2 py-4 m-auto'>
 			<div className='flex justify-between lg:mt-10'>
 				<h1 className='block text-3xl font-bold mb-4'>Expenses</h1>
 				<Button
@@ -104,7 +104,28 @@ function App() {
 					onCancel={stopEditingHandler}
 				/>
 			)}
-			<Expenses items={expenses} />
+			<article className='flex-1'>
+				<Expenses items={expenses} />
+			</article>
+			<footer className='flex justify-between'>
+				<a
+					className='text-sm text-stone-500 underline underline-offset-2 hover:no-underline'
+					href='https://github.com/igorlanko/expenses-react'
+				>
+					View on Github
+				</a>
+				<p className="text-sm text-stone-500">
+					<a
+						className='underline underline-offset-2 hover:no-underline'
+						href='https://igorlanko.com'
+						target='_blank'
+						rel="noreferrer"
+					>
+						Igor Lanko
+					</a>
+					&nbsp;in Sep, 2022.
+				</p>
+			</footer>
 		</div>
 	)
 }
