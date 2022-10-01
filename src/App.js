@@ -1,25 +1,112 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import "./App.css"
+
+import Expenses from "./components/Expenses/Expenses"
+import NewExpense from "./components/NewExpense/NewExpense"
+import Button from "./components/Primitives/Button"
+
+const DUMMY_EXPENSES = [
+	{
+		id: "el1",
+		title: "Car insurance",
+		amount: 294.58,
+		date: new Date(2022, 7, 16),
+	},
+	{
+		id: "el2",
+		title: "Nike store",
+		amount: 125.99,
+		date: new Date(2022, 7, 16),
+	},
+	{
+		id: "el3",
+		title: "Utilities",
+		amount: 130.01,
+		date: new Date(2022, 6, 12),
+	},
+	{
+		id: "el4",
+		title: "New tires",
+		amount: 990.95,
+		date: new Date(2022, 6, 12),
+	},
+	{
+		id: "el5",
+		title: "Shake-shack",
+		amount: 20.91,
+		date: new Date(2022, 2, 30),
+	},
+	{
+		id: "el5",
+		title: "Food",
+		amount: 100.13,
+		date: new Date(2021, 3, 5),
+	},
+	{
+		id: "el6",
+		title: "Soap",
+		amount: 12.51,
+		date: new Date(2020, 4, 15),
+	},
+	{
+		id: "el7",
+		title: "Gym",
+		amount: 12.55,
+		date: new Date(2020, 3, 3),
+	},
+	{
+		id: "el8",
+		title: "Gym",
+		amount: 12.55,
+		date: new Date(2020, 2, 3),
+	},
+	{
+		id: "el9",
+		title: "Gym",
+		amount: 12.55,
+		date: new Date(2020, 1, 1),
+	},
+]
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [expenses, setExpenses] = useState(DUMMY_EXPENSES)
+
+	function addExpenseHandler(expense) {
+		setExpenses((prevExpenses) => {
+			return [expense, ...prevExpenses]
+		})
+		setIsEditing(false)
+	}
+
+	const [isEditing, setIsEditing] = useState(false)
+
+	function startEditingHandler() {
+		setIsEditing(true)
+	}
+
+	function stopEditingHandler() {
+		setIsEditing(false)
+	}
+
+	return (
+		<div className='max-w-2xl px-2 py-4 m-auto'>
+			<div className='flex justify-between lg:mt-10'>
+				<h1 className='block text-3xl font-bold mb-4'>Expenses</h1>
+				<Button
+					kind='primary'
+					label='Add expense'
+					onClick={startEditingHandler}
+				/>
+			</div>
+			{isEditing && (
+				<NewExpense
+					onAddExpense={addExpenseHandler}
+					onCancel={stopEditingHandler}
+				/>
+			)}
+			<Expenses items={expenses} />
+		</div>
+	)
 }
 
-export default App;
+export default App
