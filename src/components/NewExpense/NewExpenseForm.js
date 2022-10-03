@@ -55,7 +55,7 @@ function Form(props) {
 						<input
 							className="w-full h-8 relative border rounded-md px-1 pb-1 font-mono"
 							placeholder="42"
-							type="text"
+							type="number"
 							min="0.01"
 							step="0.01"
 							value={enteredAmount}
